@@ -1,4 +1,6 @@
-# laaabs. software studio.
+# laaabs.
+
+## software studio.
 
 We design what we engineer, and engineer what we design.
 
@@ -6,25 +8,26 @@ Native, lightweight, open source. No analytics, no telemetry. Privacy first.
 
 ## Products
 
-- [**Clipboaaard**](https://clipboaaard.app) - a native macOS clipboard manager.
-- [**Baaar**](https://baaar.app) - a reliable, native macOS menu-bar manager.
+### Clipboaaard
 
-More brewing.
-
-## Standards
-
-Every product inherits from the [handbook](https://github.com/bylaaabs/handbook): brand, design, engineering, release, distribution and ops.
-
-Install via [Homebrew](https://github.com/bylaaabs/homebrew-tap):
+A native macOS clipboard manager. [clipboaaard.app](https://clipboaaard.app)
 
 ```sh
 brew install --cask bylaaabs/tap/clipboaaard
+```
+
+### Baaar
+
+A reliable, native macOS menu-bar manager. [baaar.app](https://baaar.app)
+
+```sh
 brew install --cask bylaaabs/tap/baaar
 ```
 
+More brewing.
+
 ## Contact
 
-- Web: [laaabs.com](https://laaabs.com)
-- X: [@bylaaabs](https://x.com/bylaaabs)
-- Email: hello@laaabs.com
-- Founder: [Ángel Martín](https://aaangelmartin.com)
+- [laaabs.com](https://laaabs.com)
+- [@bylaaabs](https://x.com/bylaaabs)
+- hello@laaabs.com
