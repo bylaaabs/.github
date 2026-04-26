@@ -1,14 +1,14 @@
-# laaabs.
+### laaabs.
 
-## software studio
+#### software studio
 
 We design what we engineer, and engineer what we design.
 
 Native, lightweight, open source. No analytics, no telemetry. Privacy first.
 
-## Products
+### Products
 
-### Clipboaaard
+#### Clipboaaard
 
 A native macOS clipboard manager.
 
@@ -18,7 +18,7 @@ A native macOS clipboard manager.
 brew install --cask bylaaabs/tap/clipboaaard
 ```
 
-### Baaar
+#### Baaar
 
 A reliable, native macOS menu-bar manager.
 
