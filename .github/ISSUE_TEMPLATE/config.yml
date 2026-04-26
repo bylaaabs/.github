@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussion / question
+    url: https://github.com/orgs/bylaaabs/discussions
+    about: For ideas, questions, or design discussions.
+  - name: Security issue
+    url: https://github.com/bylaaabs/handbook/security/advisories/new
+    about: Private vulnerability disclosure (use the affected repo's advisory page when possible).

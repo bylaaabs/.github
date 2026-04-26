@@ -1,0 +1,27 @@
+name: Feature request
+description: Suggest an enhancement
+labels: ["enhancement"]
+body:
+  - type: input
+    id: product
+    attributes:
+      label: Which product
+      placeholder: e.g. Clipboaaard, Baaar
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Focus on the user need, not a specific solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach (optional)
+      description: If you have a specific idea for how this should work.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered

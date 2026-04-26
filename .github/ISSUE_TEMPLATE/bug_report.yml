@@ -1,0 +1,47 @@
+name: Bug report
+description: Something is broken or misbehaves
+labels: ["bug"]
+body:
+  - type: input
+    id: product
+    attributes:
+      label: Which product
+      placeholder: e.g. Clipboaaard, Baaar
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Product version
+      description: Find it in Preferences → About
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: macOS / iOS version
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Concise description, what you were doing, what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Paste any relevant logs from Console.app (filter by product name)
+      render: shell
