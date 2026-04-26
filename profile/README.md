@@ -10,7 +10,9 @@ Native, lightweight, open source. No analytics, no telemetry. Privacy first.
 
 ### Clipboaaard
 
-A native macOS clipboard manager. [clipboaaard.app](https://clipboaaard.app)
+A native macOS clipboard manager.
+
+[clipboaaard.app](https://clipboaaard.app) · [github](https://github.com/bylaaabs/clipboaaard)
 
 ```sh
 brew install --cask bylaaabs/tap/clipboaaard
@@ -18,16 +20,12 @@ brew install --cask bylaaabs/tap/clipboaaard
 
 ### Baaar
 
-A reliable, native macOS menu-bar manager. [baaar.app](https://baaar.app)
+A reliable, native macOS menu-bar manager.
+
+[baaar.app](https://baaar.app) · [github](https://github.com/bylaaabs/baaar)
 
 ```sh
 brew install --cask bylaaabs/tap/baaar
 ```
 
 More brewing.
-
-## Contact
-
-- [laaabs.com](https://laaabs.com)
-- [@bylaaabs](https://x.com/bylaaabs)
-- hello@laaabs.com
