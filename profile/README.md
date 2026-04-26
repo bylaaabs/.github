@@ -1,6 +1,6 @@
 # laaabs.
 
-## software studio.
+## software studio
 
 We design what we engineer, and engineer what we design.
 
