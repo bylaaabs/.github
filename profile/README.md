@@ -30,7 +30,7 @@ brew install --cask bylaaabs/tap/baaar
 
 #### Speaaak
 
-Native, on-device dictation for macOS. Audio never leaves your Mac.
+Native macOS dictation. On-device by default; opt-in cloud tiers when you want them.
 
 [speaaak.app](https://speaaak.app) - [github](https://github.com/bylaaabs/speaaak)
 
