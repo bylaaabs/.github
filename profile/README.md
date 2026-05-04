@@ -28,4 +28,14 @@ A reliable, native macOS menu-bar manager.
 brew install --cask bylaaabs/tap/baaar
 ```
 
+#### Speaaak
+
+Native, on-device dictation for macOS. Whispr Flow-style ergonomics, audio never leaves your Mac.
+
+[speaaak.app](https://speaaak.app) - [github](https://github.com/bylaaabs/speaaak)
+
+```sh
+brew install --cask bylaaabs/tap/speaaak
+```
+
 More brewing.
