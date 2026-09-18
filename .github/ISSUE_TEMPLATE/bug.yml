@@ -1,0 +1,63 @@
+name: bug
+description: something is broken or misbehaves
+title: "fix: "
+labels: ["type: bug"]
+body:
+  - type: dropdown
+    id: tool
+    attributes:
+      label: tool
+      options:
+        - baaar
+        - haaarness
+        - speaaak
+        - islaaand
+        - clipboaaard
+        - terminaaal
+        - a website
+        - other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: version
+      description: the full version, as shown in about or in the release name.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: platform
+      options:
+        - macOS
+        - windows
+        - iOS / iPadOS
+        - android
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: what happened
+      description: what you did, what you expected, what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: steps
+      description: how to see it again, from a clean start.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: logs
+      description: anything relevant. never paste secrets or personal data.
+      render: shell

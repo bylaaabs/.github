@@ -1,27 +1,20 @@
-<!-- Default PR template for laaabs. repos that don't ship their own. -->
+<!-- the default pull request template for laaabs. repos that have none of their own. keep the three sections. -->
 
-## Why
+## why
 
-<!-- One or two sentences. The problem this PR solves; not the implementation. -->
+<!-- the problem this solves, in one or two sentences. not the implementation. -->
 
-## What changed
+## what changed
 
-<!-- Bulleted list from a reviewer's perspective. -->
+<!-- a list, from the point of view of the reviewer. -->
 
 -
 
-## Test plan
+## test plan
 
-<!-- How did you verify this works? -->
+<!-- how you checked it works. -->
 
-- [ ] Tests pass locally
-- [ ] Manual smoke test
-- [ ] Updated `CHANGELOG.md` under `[Unreleased]` (if applicable)
+- [ ] build, lint and tests pass locally
+- [ ] tried by hand
 
-## Screenshots / screencasts
-
-<!-- For UI changes only. -->
-
-## Related issues
-
-<!-- "Closes #123" or "Relates to #456" -->
+closes #
