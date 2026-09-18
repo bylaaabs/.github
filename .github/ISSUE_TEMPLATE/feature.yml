@@ -1,0 +1,29 @@
+name: feature
+description: something new for people to use
+title: "feat: "
+labels: ["type: feature"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: what
+      description: what we build, from the point of view of the person using it.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: why
+      description: the problem it solves and how we know it is a problem.
+    validations:
+      required: true
+  - type: checkboxes
+    id: definition-of-done
+    attributes:
+      label: definition of done
+      description: edit the list before opening the issue; tick the boxes as they are met.
+      options:
+        - label: it works on every platform it targets, in this order - macOS, windows, iOS / iPadOS, android
+        - label: tests cover it
+        - label: the docs and the changelog say it
+        - label: the pull request is merged

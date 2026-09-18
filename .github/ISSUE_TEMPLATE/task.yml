@@ -1,0 +1,28 @@
+name: task
+description: work that is not a feature or a bug - chores, refactors, docs, infra
+title: "chore: "
+labels: ["type: task"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: what
+      description: what gets done.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: why
+      description: why now, and what it unblocks.
+    validations:
+      required: true
+  - type: checkboxes
+    id: definition-of-done
+    attributes:
+      label: definition of done
+      description: edit the list before opening the issue; tick the boxes as they are met.
+      options:
+        - label: the change is in a pull request against main
+        - label: build, lint and tests pass
+        - label: whatever documents this is updated

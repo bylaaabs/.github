@@ -1,83 +1,75 @@
-# Contributor Covenant Code of Conduct
+# code of conduct
 
-## Our Pledge
+adapted from the [contributor covenant](https://www.contributor-covenant.org), version 2.1. it applies to every space of the bylaaabs organisation: repos, issues, pull requests, discussions, and wherever someone represents laaabs. in public.
 
-We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, colour, religion, or sexual identity and orientation.
+## our pledge
 
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
+we, as members, contributors and maintainers, pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, colour, religion, or sexual identity and orientation.
 
-## Our Standards
+we pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive and healthy community.
 
-Examples of behaviour that contributes to a positive environment:
+## our standards
 
-- Demonstrating empathy and kindness toward other people
-- Being respectful of differing opinions, viewpoints, and experiences
-- Giving and gracefully accepting constructive feedback
-- Accepting responsibility and apologising to those affected by our mistakes
-- Focusing on what is best not just for us as individuals, but for the overall community
+behaviour that contributes to a positive environment:
 
-Examples of unacceptable behaviour:
+- empathy and kindness toward other people.
+- respect for differing opinions, viewpoints and experiences.
+- giving and gracefully accepting constructive feedback.
+- accepting responsibility and apologising to those affected by our mistakes, and learning from them.
+- focusing on what is best not just for us as individuals, but for the community as a whole.
 
-- The use of sexualised language or imagery, and sexual attention or advances of any kind
-- Trolling, insulting or derogatory comments, and personal or political attacks
-- Public or private harassment
-- Publishing others' private information, such as a physical or email address, without their explicit permission
-- Other conduct which could reasonably be considered inappropriate in a professional setting
+behaviour that is unacceptable:
 
-## Enforcement Responsibilities
+- sexualised language or imagery, and sexual attention or advances of any kind.
+- trolling, insulting or derogatory comments, and personal or political attacks.
+- public or private harassment.
+- publishing others' private information, such as a physical or email address, without their explicit permission.
+- other conduct which could reasonably be considered inappropriate in a professional setting.
 
-Project maintainers are responsible for clarifying and enforcing our standards of acceptable behaviour and will take appropriate and fair corrective action in response to any behaviour that they deem inappropriate, threatening, offensive, or harmful.
+## enforcement responsibilities
 
-Maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned with this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.
+the maintainers are responsible for clarifying and enforcing these standards and will take appropriate and fair corrective action in response to any behaviour they deem inappropriate, threatening, offensive or harmful.
 
-## Scope
+they have the right and responsibility to remove, edit or reject comments, commits, code, wiki edits, issues and other contributions that are not aligned with this code of conduct, and will say why when appropriate.
 
-This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public spaces. Examples include using an official email address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
+## scope
 
-## Enforcement
+this code of conduct applies within all community spaces, and also when an individual is officially representing the community in public spaces: an official email address, an official social media account, or acting as an appointed representative at an online or offline event.
 
-Instances of abusive, harassing, or otherwise unacceptable behaviour may be reported to the maintainer at **oss@laaabs.com**. All complaints will be reviewed and investigated promptly and fairly.
+## enforcement
 
-All maintainers are obligated to respect the privacy and security of the reporter of any incident.
+report abusive, harassing or otherwise unacceptable behaviour to the maintainers at `support@laaabs.com`. every report is reviewed and investigated promptly and fairly.
 
-## Enforcement Guidelines
+the maintainers respect the privacy and security of whoever reports an incident.
 
-Maintainers will follow these Community Impact Guidelines in determining the consequences for any action they deem in violation of this Code of Conduct:
+## enforcement guidelines
 
-### 1. Correction
+the maintainers follow these community impact guidelines in deciding the consequences of a violation:
 
-**Community Impact**: Use of inappropriate language or other behaviour deemed unprofessional or unwelcome in the community.
+### 1. correction
 
-**Consequence**: A private, written warning from maintainers, providing clarity around the nature of the violation and an explanation of why the behaviour was inappropriate. A public apology may be requested.
+**impact**: inappropriate language or other behaviour deemed unprofessional or unwelcome.
 
-### 2. Warning
+**consequence**: a private, written warning that says what the violation was and why the behaviour was inappropriate. a public apology may be requested.
 
-**Community Impact**: A violation through a single incident or series of actions.
+### 2. warning
 
-**Consequence**: A warning with consequences for continued behaviour. No interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, for a specified period of time. This includes avoiding interactions in community spaces as well as external channels like social media. Violating these terms may lead to a temporary or permanent ban.
+**impact**: a violation through a single incident or a series of actions.
 
-### 3. Temporary Ban
+**consequence**: a warning with consequences for continued behaviour. no interaction with the people involved, including unsolicited interaction with those enforcing the code of conduct, for a specified period of time, in community spaces and in external channels such as social media. violating these terms may lead to a temporary or permanent ban.
 
-**Community Impact**: A serious violation of community standards, including sustained inappropriate behaviour.
+### 3. temporary ban
 
-**Consequence**: A temporary ban from any sort of interaction or public communication with the community for a specified period of time. No public or private interaction with the people involved, including unsolicited interaction with those enforcing the Code of Conduct, is allowed during this period. Violating these terms may lead to a permanent ban.
+**impact**: a serious violation of community standards, including sustained inappropriate behaviour.
 
-### 4. Permanent Ban
+**consequence**: a temporary ban from any sort of interaction or public communication with the community for a specified period of time. no public or private interaction with the people involved, including unsolicited interaction with those enforcing the code of conduct, during this period. violating these terms may lead to a permanent ban.
 
-**Community Impact**: Demonstrating a pattern of violation of community standards, including sustained inappropriate behaviour, harassment of an individual, or aggression toward or disparagement of classes of individuals.
+### 4. permanent ban
 
-**Consequence**: A permanent ban from any sort of public interaction within the community.
+**impact**: a pattern of violation of community standards, including sustained inappropriate behaviour, harassment of an individual, or aggression toward or disparagement of classes of individuals.
 
-## Attribution
+**consequence**: a permanent ban from any sort of public interaction within the community.
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1, available at [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html][v2.1].
+## attribution
 
-Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcement ladder][Mozilla CoC].
-
-For answers to common questions about this code of conduct, see the FAQ at [https://www.contributor-covenant.org/faq][FAQ]. Translations are available at [https://www.contributor-covenant.org/translations][translations].
-
-[homepage]: https://www.contributor-covenant.org
-[v2.1]: https://www.contributor-covenant.org/version/2/1/code_of_conduct.html
-[Mozilla CoC]: https://github.com/mozilla/diversity
-[FAQ]: https://www.contributor-covenant.org/faq
-[translations]: https://www.contributor-covenant.org/translations
+this code of conduct is adapted from the [contributor covenant](https://www.contributor-covenant.org), version 2.1, available at [contributor-covenant.org/version/2/1/code_of_conduct.html](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html). the community impact guidelines were inspired by [mozilla's code of conduct enforcement ladder](https://github.com/mozilla/diversity). faq at [contributor-covenant.org/faq](https://www.contributor-covenant.org/faq); translations at [contributor-covenant.org/translations](https://www.contributor-covenant.org/translations).

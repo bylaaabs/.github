@@ -1,0 +1,42 @@
+# reusable: the pull request title is a conventional commit
+# (`type(scope): subject`, lowercase) and has no em or en dash.
+#
+# a repo calls it from a workflow that runs on pull_request events:
+#
+#   on:
+#     pull_request:
+#       types: [opened, edited, synchronize, reopened]
+#   jobs:
+#     title:
+#       uses: bylaaabs/.github/.github/workflows/pr-title.yml@main
+#
+# no third party action: one node step.
+
+name: pr title
+
+on:
+  workflow_call:
+
+jobs:
+  title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check the title
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          node - <<'JS'
+          const title = process.env.TITLE ?? "";
+          const types = ["feat", "fix", "docs", "style", "refactor", "perf", "test", "build", "ci", "chore", "revert", "spike"];
+          const shape = new RegExp(`^(${types.join("|")})(\\([a-z0-9][a-z0-9./-]*\\))?!?: [a-z0-9\`\\[\\(\\"'@].*$`);
+          const problems = [];
+          if (!shape.test(title)) problems.push(`the title must be \`type(scope): subject\`, lowercase, with type one of ${types.join(", ")}`);
+          if (/[\u2013\u2014]/.test(title)) problems.push("no em or en dash: use \" - \"");
+          if (/^[^:]*:\s+[A-Z]/.test(title)) problems.push("the subject starts lowercase");
+          if (problems.length) {
+            console.error(`pull request title: ${JSON.stringify(title)}`);
+            for (const p of problems) console.error(`  - ${p}`);
+            process.exit(1);
+          }
+          console.log(`ok: ${title}`);
+          JS

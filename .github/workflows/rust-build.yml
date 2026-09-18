@@ -1,0 +1,55 @@
+# reusable: builds, lints, formats and tests a rust workspace (a product core
+# or a service).
+#
+# a repo calls it from its own workflow:
+#
+#   jobs:
+#     rust:
+#       uses: bylaaabs/.github/.github/workflows/rust-build.yml@main
+#       secrets: inherit
+#
+# `infra` is a private submodule, so the caller needs a SUBMODULE_TOKEN
+# secret (a fine-grained token with read access to it). without it the
+# checkout falls back to github.token, which only reaches public submodules.
+
+name: rust build
+
+on:
+  workflow_call:
+    inputs:
+      working-directory:
+        description: where the cargo workspace lives (the repo root by default)
+        type: string
+        default: "."
+    secrets:
+      SUBMODULE_TOKEN:
+        description: a token that can read the private submodules
+        required: false
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.working-directory }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.SUBMODULE_TOKEN || github.token }}
+      - name: stable toolchain
+        run: rustup toolchain install stable --profile minimal --component clippy,rustfmt && rustup default stable
+      - name: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/index
+            ~/.cargo/registry/cache
+            ~/.cargo/git/db
+            ${{ inputs.working-directory }}/target
+          key: cargo-${{ runner.os }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: cargo-${{ runner.os }}-
+      - run: cargo build --workspace --all-targets
+      - run: cargo clippy --workspace --all-targets -- -D warnings
+      - run: cargo fmt --all --check
+      - run: cargo test --workspace
