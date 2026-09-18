@@ -1,0 +1,42 @@
+# reusable: builds a laaabs. web (vite + react + the ui kit as a submodule).
+#
+# a repo calls it from its own workflow:
+#
+#   jobs:
+#     build:
+#       uses: bylaaabs/.github/.github/workflows/web-build.yml@main
+#       secrets: inherit
+#
+# the `ui` and `infra` submodules are private, so the caller needs a
+# SUBMODULE_TOKEN secret (a fine-grained token with read access to them).
+# without it the checkout falls back to github.token, which only reaches
+# public submodules. deploys are not done here: workers builds deploy on push.
+
+name: web build
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        description: the node version to build with
+        type: string
+        default: "22"
+    secrets:
+      SUBMODULE_TOKEN:
+        description: a token that can read the private submodules
+        required: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.SUBMODULE_TOKEN || github.token }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+          cache: npm
+      - run: npm ci
+      - run: npm run build
