@@ -1,41 +1,38 @@
-# Security policy
+# security policy
 
-This document is the default security policy for the [laaabs.](https://laaabs.com) studio. Individual products may publish their own `SECURITY.md` with a more specific threat model; this one applies whenever a repo doesn't.
+the default security policy of laaabs. it applies to every repo of the bylaaabs organisation that has no `SECURITY.md` of its own; a product may publish a more specific one.
 
-## Reporting a vulnerability
+## what to report
 
-**Do not open a public GitHub issue for security vulnerabilities.**
+anything that lets someone read, change or run what they should not: in a product (baaar, haaarness, speaaak, islaaand, clipboaaard, terminaaal), in a service (`*.laaabs.com`) or in this organisation's repos and releases. examples: a way to run code, to read another person's data, to bypass signing or notarisation, a leaked secret, a dependency with a known vulnerability we ship.
 
-Two channels:
+**never in a public issue, discussion or pull request.**
 
-1. **Email** `oss@laaabs.com` with subject `SECURITY: <product> - <short summary>`.
-2. **GitHub private advisory** on the affected repo: `https://github.com/bylaaabs/<repo>/security/advisories/new`.
+## how to report
 
-Include:
+- email `security@laaabs.com`, subject `security: <repo> - <short summary>`.
+- or open a private advisory on the affected repo: `https://github.com/bylaaabs/<repo>/security/advisories/new`.
 
-- A description of the vulnerability and potential impact.
-- Steps to reproduce (product version, macOS/iOS version, relevant logs).
-- Suggested fix if you have one.
-- Whether you'd like public credit after the fix ships.
+include what you can: what it is and what it lets an attacker do, how to reproduce it (product version, platform - macOS, windows, iOS / iPadOS or android - and its version, logs), a fix if you have one, and whether you want to be credited when the fix ships.
 
-## Response timeline
+## what to expect
 
-1. Acknowledgement within **48 hours**.
-2. Validation within **7 days**. If false-positive, we explain and close.
-3. Fix and patched release as fast as reasonably possible. Disclosure date coordinated with the reporter for credited reports.
-4. Credit in release notes if desired.
+1. an acknowledgement within 48 hours.
+2. a verdict within 7 days: confirmed, or an explanation of why not.
+3. a fix and a release as fast as we reasonably can; the disclosure date agreed with you.
+4. credit in the release notes if you want it.
 
-We never ask reporters for an NDA. We never delay disclosure to manage PR - only to ship a fix.
+we never ask for an nda. we never delay a disclosure for anything but shipping the fix.
 
-## Hardening principles we follow
+## no bounty yet
 
-- No secrets in repositories. `.gitignore` covers `*.p12`, `*.mobileprovision`, signing keys, `.env`.
-- Dependencies audited on add. Every Swift / npm dependency is licence-checked and version-pinned.
-- Minimal entitlements. Only what each target strictly needs.
-- Hardened Runtime + notarisation on every direct-distribution macOS build.
-- No runtime code loading. No `dlopen`, no bundle loading from user paths.
-- Logging never includes user content. Only metadata.
+there is no bug bounty for now. we say thank you, we credit you, and we fix it.
 
-## Hall of fame
+## how we build
 
-Researchers who responsibly disclose will be listed in the affected product's `SECURITY.md` (with their permission) as fixes ship.
+- no secrets in repos: `.gitignore` covers keys, certificates, provisioning profiles and `.env`.
+- dependencies are intentional, licence-checked and version-pinned; audited when added.
+- minimal entitlements and permissions; only what each target needs.
+- hardened runtime and notarisation on every macOS build we distribute ourselves; signed builds on every platform.
+- no runtime code loading, no plugins from user paths.
+- no telemetry. logs never contain user content.
