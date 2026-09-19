@@ -8,7 +8,7 @@
 #       uses: bylaaabs/.github/.github/workflows/rust-build.yml@main
 #       secrets: inherit
 #
-# `infra` is a private submodule, so the caller needs a SUBMODULE_TOKEN
+# `map` is a private submodule, so the caller needs a SUBMODULE_TOKEN
 # secret (a fine-grained token with read access to it). without it the
 # checkout falls back to github.token, which only reaches public submodules.
 

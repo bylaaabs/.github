@@ -6,7 +6,7 @@ how work happens in the bylaaabs organisation. the studio-wide rules live in the
 
 - one repo per product, with all its platforms inside (`core/`, `mac/`, `ios/`, `android/`, `windows/`). services get a repo each. never a repo per platform.
 - rust for every core and every service. typescript only in web front ends. swift, kotlin and winui only as the native layer on a rust core.
-- `infra/` is a submodule in every repo and is the map of everything; `service.yaml` at the root describes the repo and must agree with `infra/map/services.yaml`. ci checks it.
+- `map/` is a submodule in every repo and is the map of everything; `service.yaml` at the root describes the repo and must agree with `map/map/services.yaml`. ci checks it.
 - the instructions for agents and humans are in `AGENTS.md`; `CLAUDE.md` is just `@AGENTS.md`.
 
 ## how a change happens

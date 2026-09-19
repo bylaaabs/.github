@@ -7,7 +7,7 @@
 #       uses: bylaaabs/.github/.github/workflows/web-build.yml@main
 #       secrets: inherit
 #
-# the `ui` and `infra` submodules are private, so the caller needs a
+# the `ui`, `brand` and `map` submodules are private, so the caller needs a
 # SUBMODULE_TOKEN secret (a fine-grained token with read access to them).
 # without it the checkout falls back to github.token, which only reaches
 # public submodules. deploys are not done here: workers builds deploy on push.

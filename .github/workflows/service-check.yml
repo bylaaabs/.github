@@ -1,6 +1,6 @@
 # reusable: checks that the repo's `service.yaml` agrees with the map in
-# `infra/map/services.yaml`. the script lives in the infra submodule of the
-# calling repo, at `infra/scripts/check.mjs`.
+# `map/map/services.yaml`. the script lives in the map submodule of the
+# calling repo, at `map/scripts/check.mjs`.
 #
 # a repo calls it from its own workflow:
 #
@@ -9,7 +9,7 @@
 #       uses: bylaaabs/.github/.github/workflows/service-check.yml@main
 #       secrets: inherit
 #
-# `infra` is a private submodule, so the caller needs a SUBMODULE_TOKEN
+# `map` is a private submodule, so the caller needs a SUBMODULE_TOKEN
 # secret (a fine-grained token with read access to it).
 
 name: service check
@@ -37,4 +37,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: node infra/scripts/check.mjs ${{ inputs.service-file }}
+      - run: node map/scripts/check.mjs ${{ inputs.service-file }}
