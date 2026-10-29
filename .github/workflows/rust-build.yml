@@ -8,9 +8,12 @@
 #       uses: bylaaabs/.github/.github/workflows/rust-build.yml@main
 #       secrets: inherit
 #
-# `map` is a private submodule, so the caller needs a SUBMODULE_TOKEN
-# secret (a fine-grained token with read access to it). without it the
-# checkout falls back to github.token, which only reaches public submodules.
+# the private submodules (`map`, `ui-web`, `brand`, `handbook`) need a token
+# that can read them. on aaanvil (every private repo) each job gets one from
+# the runner: `env.AAANVIL_SUBMODULE_TOKEN`, read-only and an hour long, so
+# the caller needs no secret. a SUBMODULE_TOKEN secret, when a repo has one,
+# still wins; with neither, the checkout falls back to github.token, which
+# only reaches public submodules (a public repo, on github's runners).
 #
 # the runner follows the calling repo's visibility: a private repo runs on
 # `aaanvil-linux` (our own box, which refuses public repos), a public repo on
@@ -38,7 +41,7 @@ on:
         default: "."
     secrets:
       SUBMODULE_TOKEN:
-        description: a token that can read the private submodules
+        description: a token that can read the private submodules (not needed on aaanvil, which hands each job one)
         required: false
 
 jobs:
@@ -51,7 +54,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-          token: ${{ secrets.SUBMODULE_TOKEN || github.token }}
+          token: ${{ secrets.SUBMODULE_TOKEN || env.AAANVIL_SUBMODULE_TOKEN || github.token }}
       - name: stable toolchain
         run: rustup toolchain install stable --profile minimal --component clippy,rustfmt && rustup default stable
       - name: cache
