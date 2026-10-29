@@ -7,10 +7,14 @@
 #       uses: bylaaabs/.github/.github/workflows/web-build.yml@main
 #       secrets: inherit
 #
-# the `ui`, `brand` and `map` submodules are private, so the caller needs a
-# SUBMODULE_TOKEN secret (a fine-grained token with read access to them).
-# without it the checkout falls back to github.token, which only reaches
-# public submodules. deploys are not done here: workers builds deploy on push.
+# the private submodules (`map`, `ui-web`, `brand`, `handbook`) need a token
+# that can read them, and the caller needs no secret for it: on aaanvil
+# (every private repo) the runner gives each job a read-only, hour-long token
+# and sets git up to use it for those four repos only (bylaaabs/aaanvil
+# `runner/job-started.sh`), so this checkout of the repo itself keeps
+# github.token. a public repo, on github's runners, reaches public
+# submodules only.
+# deploys are not done here: workers builds deploy on push.
 #
 # the runner follows the calling repo's visibility: a private repo runs on
 # `aaanvil-linux` (our own box, which refuses public repos), a public repo on
@@ -38,7 +42,7 @@ on:
         default: "22"
     secrets:
       SUBMODULE_TOKEN:
-        description: a token that can read the private submodules
+        description: a token for the checkout (not needed for the private submodules on aaanvil, which hands each job one)
         required: false
 
 jobs:
