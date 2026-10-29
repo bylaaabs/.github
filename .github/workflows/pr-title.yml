@@ -12,11 +12,16 @@
 #
 # no third party action: setup-node and one node step.
 #
-# it runs on `aaanvil-linux` (our own runners, private repos only) unless the
-# caller says otherwise. a public repo must pass `runner: ubuntu-latest`:
+# the runner follows the calling repo's visibility: a private repo runs on
+# `aaanvil-linux` (our own box, which refuses public repos), a public repo on
+# github's `ubuntu-latest` (free for public repos). when the event says
+# nothing about the repo, it falls back to `ubuntu-latest`, so a public repo
+# never lands on our box. a caller can still force a label:
 #
 #     with:
-#       runner: ubuntu-latest
+#       runner: aaanvil-linux
+#
+# see bylaaabs/infra docs/runners.md.
 
 name: pr title
 
@@ -24,13 +29,13 @@ on:
   workflow_call:
     inputs:
       runner:
-        description: the runner label the job runs on. aaanvil-linux is our own box and takes private repos only; public repos must pass ubuntu-latest
+        description: force a runner label. empty picks one from the repo's visibility (private aaanvil-linux, public ubuntu-latest)
         type: string
-        default: aaanvil-linux
+        default: ""
 
 jobs:
   title:
-    runs-on: ${{ inputs.runner }}
+    runs-on: ${{ inputs.runner || (github.event.repository.private && 'aaanvil-linux' || 'ubuntu-latest') }}
     steps:
       # the self-hosted image does not put node on the path; github's does, so this
       # only costs a cache hit there.
