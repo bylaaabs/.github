@@ -11,12 +11,22 @@
 # SUBMODULE_TOKEN secret (a fine-grained token with read access to them).
 # without it the checkout falls back to github.token, which only reaches
 # public submodules. deploys are not done here: workers builds deploy on push.
+#
+# it runs on `aaanvil-linux` (our own runners, private repos only) unless the
+# caller says otherwise. a public repo must pass `runner: ubuntu-latest`:
+#
+#     with:
+#       runner: ubuntu-latest
 
 name: web build
 
 on:
   workflow_call:
     inputs:
+      runner:
+        description: the runner label the job runs on. aaanvil-linux is our own box and takes private repos only; public repos must pass ubuntu-latest
+        type: string
+        default: aaanvil-linux
       node-version:
         description: the node version to build with
         type: string
@@ -28,7 +38,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runner }}
     steps:
       - uses: actions/checkout@v4
         with:
