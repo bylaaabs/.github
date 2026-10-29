@@ -8,11 +8,12 @@
 #       secrets: inherit
 #
 # the private submodules (`map`, `ui-web`, `brand`, `handbook`) need a token
-# that can read them. on aaanvil (every private repo) each job gets one from
-# the runner: `env.AAANVIL_SUBMODULE_TOKEN`, read-only and an hour long, so
-# the caller needs no secret. a SUBMODULE_TOKEN secret, when a repo has one,
-# still wins; with neither, the checkout falls back to github.token, which
-# only reaches public submodules (a public repo, on github's runners).
+# that can read them, and the caller needs no secret for it: on aaanvil
+# (every private repo) the runner gives each job a read-only, hour-long token
+# and sets git up to use it for those four repos only (bylaaabs/aaanvil
+# `runner/job-started.sh`), so this checkout of the repo itself keeps
+# github.token. a public repo, on github's runners, reaches public
+# submodules only.
 # deploys are not done here: workers builds deploy on push.
 #
 # the runner follows the calling repo's visibility: a private repo runs on
@@ -41,7 +42,7 @@ on:
         default: "22"
     secrets:
       SUBMODULE_TOKEN:
-        description: a token that can read the private submodules (not needed on aaanvil, which hands each job one)
+        description: a token for the checkout (not needed for the private submodules on aaanvil, which hands each job one)
         required: false
 
 jobs:
@@ -51,7 +52,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-          token: ${{ secrets.SUBMODULE_TOKEN || env.AAANVIL_SUBMODULE_TOKEN || github.token }}
+          token: ${{ secrets.SUBMODULE_TOKEN || github.token }}
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node-version }}
