@@ -11,12 +11,27 @@
 # SUBMODULE_TOKEN secret (a fine-grained token with read access to them).
 # without it the checkout falls back to github.token, which only reaches
 # public submodules. deploys are not done here: workers builds deploy on push.
+#
+# the runner follows the calling repo's visibility: a private repo runs on
+# `aaanvil-linux` (our own box, which refuses public repos), a public repo on
+# github's `ubuntu-latest` (free for public repos). when the event says
+# nothing about the repo, it falls back to `ubuntu-latest`, so a public repo
+# never lands on our box. a caller can still force a label:
+#
+#     with:
+#       runner: aaanvil-linux
+#
+# see bylaaabs/infra docs/runners.md.
 
 name: web build
 
 on:
   workflow_call:
     inputs:
+      runner:
+        description: force a runner label. empty picks one from the repo's visibility (private aaanvil-linux, public ubuntu-latest)
+        type: string
+        default: ""
       node-version:
         description: the node version to build with
         type: string
@@ -28,7 +43,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runner || (github.event.repository.private && 'aaanvil-linux' || 'ubuntu-latest') }}
     steps:
       - uses: actions/checkout@v4
         with:
