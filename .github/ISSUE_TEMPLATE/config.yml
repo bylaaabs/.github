@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: questions and ideas
-    url: https://github.com/orgs/bylaaabs/discussions
-    about: github discussions - for questions, ideas and anything that is not yet an issue.
+    url: https://laaabs.com/contact
+    about: for questions, ideas and anything that is not yet an issue. or email support@laaabs.com.
   - name: security vulnerability
     url: https://github.com/bylaaabs/.github/blob/main/SECURITY.md
     about: never in a public issue. email security@laaabs.com or open a private advisory on the affected repo.

@@ -1,0 +1,132 @@
+# what github.com/bylaaabs shows: one card per repository below, and the map of how the open pieces fit.
+# map/render.py reads this file and redraws profile/ every day and on every push.
+#
+# every public repository of the organisation is declared here or under skip, or the render fails.
+# a product that is still private gets a card that links to its page on laaabs.com; the day its repo
+# goes public, the next render links the card to the repo instead. nothing else that is private goes here.
+#
+#   group:    tools, apps, alongside or project - the sections of the profile, in that order
+#   product:  tool or app - draws the wordmark from bylaaabs/brand and links to laaabs.com/<kind>s/<name> while private
+#   what:     one line, lowercase, no dashes but " - "
+#   status:   alpha, beta, building - from bylaaabs/laaabs.com src/data/products.ts; a building tool whose
+#             public repo has a release with a dmg is drawn as alpha, as the site does
+#   version:  shown next to the status while the repo has no release of its own
+#   stack:    platforms, then languages, in the studio order
+#   licence:  Apache-2.0, or a few words for what it is instead; left out, nothing
+#   map:      the column on the map (brand, kits, tools, install); left out, not on the map
+#   uses:     what it is built on: an arrow on the map
+#   cards:    the tools that show a card in it: a dotted arrow on the map
+#   casks:    true for the tap: its arrows come from the casks it ships, read from the repo at render time
+
+repos:
+  - name: baaar
+    group: tools
+    product: tool
+    what: a native menu bar manager for macOS 27
+    status: alpha
+    stack: [macOS, Swift]
+    licence: Apache-2.0
+    map: tools
+    uses: [ui-swift]
+  - name: clipboaaard
+    group: tools
+    product: tool
+    what: clipboard history that stays on your mac
+    status: alpha
+    stack: [macOS, Swift]
+    licence: Apache-2.0
+    map: tools
+    uses: [ui-swift]
+  - name: taaab
+    group: tools
+    product: tool
+    what: a window switcher for macOS
+    status: building
+    stack: [macOS, Rust, Swift]
+    licence: Apache-2.0
+    map: tools
+    uses: [ui-swift]
+  - name: speaaak
+    group: tools
+    product: tool
+    what: dictation with clean text at your cursor, all on your mac
+    status: building
+    stack: [macOS, Swift]
+    licence: Apache-2.0
+    map: tools
+    uses: [ui-swift]
+  - name: caaapture
+    group: tools
+    product: tool
+    what: a screen capture tool for macOS
+    status: building
+    stack: [macOS, Rust, Swift]
+    licence: Apache-2.0
+    map: tools
+    uses: [ui-swift]
+  - name: usaaage
+    group: tools
+    product: tool
+    what: your coding agents' usage, spend and resets, in the menu bar
+    status: building
+    stack: [macOS, Rust, Swift]
+    licence: Apache-2.0
+    map: tools
+    uses: [ui-swift, usage-swift]
+  - name: islaaand
+    group: tools
+    product: tool
+    what: the notch of your mac, as a small island
+    status: building
+    stack: [macOS, Swift]
+    licence: Apache-2.0
+    map: tools
+    uses: [ui-swift]
+    cards: [speaaak, caaapture, usaaage]
+  - name: haaarness
+    group: tools
+    product: tool
+    what: an agent harness that also happens to be a terminal
+    status: building
+    stack: [macOS, Rust, Swift]
+    licence: private while it is built
+  - name: finaaance
+    group: apps
+    product: app
+    what: all your money in one place - banks, cards and investments
+    status: beta
+    stack: [iOS / iPadOS, Rust, Swift]
+    licence: in app review
+  - name: homebrew-tap
+    group: alongside
+    what: brew install --cask bylaaabs/tap/<tool>
+    stack: [Ruby]
+    map: install
+    casks: true
+  - name: brand
+    group: alongside
+    what: the wordmarks, icons, banners and tokens of every product
+    stack: [SVG, tokens]
+    map: brand
+  - name: ui-swift
+    group: alongside
+    what: the design kit for macOS and iOS that every tool is built on
+    stack: [Swift, SwiftUI]
+    licence: Apache-2.0
+    map: kits
+    uses: [brand]
+  - name: usage-swift
+    group: alongside
+    what: the usage pieces usaaage shares
+    stack: [Swift]
+    licence: Apache-2.0
+    map: kits
+    uses: [ui-swift]
+  - name: .github
+    group: project
+    what: this profile, the map, and the defaults of every repo
+    stack: [Python, YAML]
+
+# public, but not on the profile
+skip:
+  - speaaak-cf-worker
