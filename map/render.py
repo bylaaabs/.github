@@ -157,15 +157,17 @@ def arrow_out(x, y, color, size=7):
 # the pieces
 
 def header(marks, t):
-    w, h = 640, 150
-    for theme, c in THEMES.items():
+    # the wordmark on black, as the org's avatar and the brand's banners: the same in both themes
+    w, h = 640, 200
+    bg = f'<rect width="{w}" height="{h}" rx="20" fill="#000"/>'
+    for theme in THEMES:
         wm = marks["laaabs"]
         width = wm["viewBox"][2] * 64 / wm["letterHeight"]
-        logo, _ = mark(wm, (w - width) / 2, 18, 64, c["text"])
+        logo, _ = mark(wm, (w - width) / 2, 42, 64, "#fff")
         tb = marks["things-by-laaabs"]
         tw = tb["viewBox"][2] * 17 / tb["letterHeight"]
-        tag, _ = mark(tb, (w - tw) / 2, 112, 17, c["muted"])
-        write(f"header-{theme}.svg", svg(w, h, "laaabs. things by laaabs.", logo + tag, t, fonts=False))
+        tag, _ = mark(tb, (w - tw) / 2, 138, 17, "#8e8e93")
+        write(f"header-{theme}.svg", svg(w, h, "laaabs. things by laaabs.", bg + logo + tag, t, fonts=False))
 
 
 BUTTONS = {
