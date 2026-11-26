@@ -2,7 +2,7 @@
 
 the defaults of the bylaaabs organisation on github. public.
 
-- `profile/README.md` is the org profile shown at [github.com/bylaaabs](https://github.com/bylaaabs).
+- `profile/` is the org profile shown at [github.com/bylaaabs](https://github.com/bylaaabs), drawn by `map/render.py` from `map/repos.yml` (see `AGENTS.md`).
 - `.github/ISSUE_TEMPLATE/` and `.github/PULL_REQUEST_TEMPLATE.md` are the issue and pull request templates every repo inherits when it has none of its own.
 - `.github/workflows/` are reusable workflows (`on: workflow_call`) the other repos call with `uses: bylaaabs/.github/.github/workflows/<name>.yml@main`.
 - `CODE_OF_CONDUCT.md`, `SECURITY.md`, `SUPPORT.md` and `CONTRIBUTING.md` are the community files github shows on every repo of the org that lacks its own.

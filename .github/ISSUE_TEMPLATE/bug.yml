@@ -9,11 +9,14 @@ body:
       label: tool
       options:
         - baaar
-        - haaarness
-        - speaaak
-        - islaaand
         - clipboaaard
-        - terminaaal
+        - taaab
+        - speaaak
+        - caaapture
+        - usaaage
+        - islaaand
+        - haaarness
+        - finaaance
         - a website
         - other
     validations:

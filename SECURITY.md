@@ -4,7 +4,7 @@ the default security policy of laaabs. it applies to every repo of the bylaaabs 
 
 ## what to report
 
-anything that lets someone read, change or run what they should not: in a product (baaar, haaarness, speaaak, islaaand, clipboaaard, terminaaal), in a service (`*.laaabs.com`) or in this organisation's repos and releases. examples: a way to run code, to read another person's data, to bypass signing or notarisation, a leaked secret, a dependency with a known vulnerability we ship.
+anything that lets someone read, change or run what they should not: in a product (baaar, clipboaaard, taaab, speaaak, caaapture, usaaage, islaaand, haaarness, finaaance), in a service (`*.laaabs.com`) or in this organisation's repos and releases. examples: a way to run code, to read another person's data, to bypass signing or notarisation, a leaked secret, a dependency with a known vulnerability we ship.
 
 **never in a public issue, discussion or pull request.**
 

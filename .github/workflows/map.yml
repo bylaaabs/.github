@@ -1,0 +1,44 @@
+# not a reusable workflow: it runs here only. redraws github.com/bylaaabs (the map, the cards, the buttons)
+# from map/repos.yml every day and on every change, and commits profile/ when it changed. a card links to
+# its repo once the repo is public, so a tool that opens flips on the next run. fails when a public
+# repository is not declared in map/repos.yml. needs nothing but the GITHUB_TOKEN of the run.
+name: map
+
+on:
+  push:
+    branches: [main]
+    paths: ["map/**", "profile/README.md", ".github/workflows/map.yml"]
+  pull_request:
+    paths: ["map/**", "profile/README.md", ".github/workflows/map.yml"]
+  schedule:
+    - cron: "23 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: map
+  cancel-in-progress: false
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r map/requirements.txt
+      - run: python -B map/render.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: commit the profile when it changed
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          if [ -z "$(git status --porcelain -- profile)" ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile
+          git commit -m "chore(profile): redraw the map and the cards"
+          git push
