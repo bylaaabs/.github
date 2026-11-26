@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="header-dark.svg">
-    <img src="header-light.svg" alt="laaabs. things by laaabs." width="480">
+    <img src="header-light.svg" alt="laaabs. things by laaabs." width="720">
   </picture>
 </p>
 
